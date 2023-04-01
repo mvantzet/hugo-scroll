@@ -80,6 +80,8 @@
       2. General - Setting up some base styles
       ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap');
+
 html {
   height: 100%;
   max-height: 100%;
@@ -94,7 +96,7 @@ body {
   font-family: "Roboto Slab", serif;
   font-size: 2rem;
   line-height: 1.6em;
-  color: #3a4145;
+  color: #fcfcfc;
 }
 a.fa {
   text-decoration: none;
@@ -129,7 +131,8 @@ h6 {
   line-height: 1;
   margin-top: 0;
   margin-bottom: 10px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
 }
 h3,
 h4,
@@ -138,8 +141,9 @@ h6 {
   text-rendering: optimizeLegibility;
   line-height: 120%;
   margin-top: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Kanit", sans-serif;
   margin-bottom: 0%;
+  font-weight: 700;
 }
 
 h1 {
@@ -450,7 +454,7 @@ ul li {
 .inner {
   position: relative;
   width: 80%;
-  max-width: 700px;
+  max-width: 725px;
   margin: 0 auto;
 }
 
@@ -517,7 +521,7 @@ ul li {
 .post-holder {
   width: 100%;
   height: 100%;
-  background: #f2efe8;
+  background: #000; 
   position: relative;
 }
 .post-holder.odd {
@@ -916,6 +920,68 @@ a.fn-item.active {
   top: -33px;
 }
 
+@keyframes scroll {
+	0% { transform: translateX(0); }
+    22% { transform: translateX(0); }
+    25% { transform: translateX(calc(-100vw * 1)); }
+    47% { transform: translateX(calc(-100vw * 1)); }
+    50% { transform: translateX(calc(-100vw * 2)); }
+    72% { transform: translateX(calc(-100vw * 2)); }
+    75% { transform: translateX(calc(-100vw * 3)); }
+    97% { transform: translateX(calc(-100vw * 3)); }
+	100% { transform: translateX(calc(-100vw * 4))}
+}
+
+.slider {
+	background: white;
+	box-shadow: 0 10px 20px -5px rgba(0, 0, 0, .125);
+	margin: auto;
+	overflow:hidden;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+
+.slider::before,
+.slider::after {
+    background: linear-gradient(to right,  rgba(0,0,0,1) 0%,rgba(0,0,0,0) 100%);
+    content: "";
+    height: 100vh;
+    position: absolute;
+    width: 10vw;
+    z-index: 2;
+}
+	
+.slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.slide-track {
+    height: 100vh;
+    animation: scroll 20s ease infinite;
+    display: flex;
+    width: calc(100vw * 5);
+}
+
+.slide {
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+#site-head-content {
+    margin-top: 300px;
+}
+
 /* ==========================================================================
       9. Media Queries - Smaller than 1130px
       ========================================================================== */
@@ -947,7 +1013,7 @@ a.fn-item.active {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     min-height: 240px;
-    padding: 15% 0;
+    padding: 10vh 0;
     height: 100%;
     margin-bottom: 0rem;
   }
@@ -991,6 +1057,17 @@ a.fn-item.active {
   h4 {
     font-size: 2.8rem;
   }
+  
+  #site-head-content {
+    margin-top: 0px;
+  }
+  .blog-title {
+	  margin-bottom: 300px;
+  }
+  .blog-description {
+	  font-size: 2.0rem;
+  }
+
 }
 
 /* ==========================================================================
@@ -1024,8 +1101,8 @@ a.fn-item.active {
   }
 
   #site-head {
-    padding: 10% 0;
-    height: 65%;
+    padding: 10vw 0;
+    height: 65vh;
   }
   #header-arrow {
     display: none;
@@ -1102,6 +1179,23 @@ a.fn-item.active {
   .site-footer {
     /*margin-top: 0.8rem;*/
     font-size: 1.1rem;
+  }
+  
+  #site-head-content {
+    margin-top: 25px;
+  }
+  .blog-title {
+	  margin-bottom: 200px;
+  }
+  .blog-description {
+	  font-size: 1.8rem;
+  }
+
+  .slider {
+     height: 65vh;
+  }
+.slide {
+ height: 65vh;
   }
 }
 

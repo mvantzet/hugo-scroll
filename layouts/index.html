@@ -1,12 +1,28 @@
 {{ define "main" }}
 {{ $headless := .Site.GetPage "/homepage" }}
 {{ $sections := $headless.Resources.ByType "page" }}
-<header id="site-head" {{ with .Params.header_image }}style="background-image: url({{ . }})"{{ end }}>
+<header id="site-head">
+
+    <div class="slider">
+        <div class="slide-track">
+            <div class="slide" {{ with .Params.header_image1 }}style="background-image: url({{ . }})"{{ end }}>
+            </div>
+            <div class="slide" {{ with .Params.header_image2 }}style="background-image: url({{ . }})"{{ end }}>
+            </div>
+            <div class="slide" {{ with .Params.header_image3 }}style="background-image: url({{ . }})"{{ end }}>
+            </div>
+            <div class="slide" {{ with .Params.header_image4 }}style="background-image: url({{ . }})"{{ end }}>
+            </div>
+            <div class="slide" {{ with .Params.header_image1 }}style="background-image: url({{ . }})"{{ end }}>
+            </div>
+        </div>
+    </div>
     <div class="vertical">
         <div id="site-head-content" class="inner">
 
             {{ with .Params.header_headline }}<h1 class="blog-title">{{ . }}</h1>{{ end }}
             {{ with .Params.header_subheadline }}<h2 class="blog-description">{{ . }}</h2>{{ end }}
+            {{ with .Params.header_subheadline2 }}<h2 class="blog-description">{{ . }}</h2>{{ end }}
 
             {{ range where $sections ".Params.header_menu" "eq" true }}
                  <a class='btn site-menu' data-title-anchor='{{ anchorize .Title }}'>{{ .Title }}</a>
@@ -24,7 +40,7 @@
             <article id='{{ anchorize .Title }}' class='post {{ if eq $index_val 0 }}first{{ else }}{{ if eq (add $index_val 1) (len $sections) }}last{{ end }}{{ end }}'>
                 <header class="post-header">
                     <h2 class="post-title">{{ .Title }}</h2>
-                </header>
+                </header> 
                 <section class="post-content">
                     {{ .Content }}
                 </section>
