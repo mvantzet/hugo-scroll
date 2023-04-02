@@ -446,15 +446,15 @@ li {
 }
 
 .blog-title {
-  color: #37501a;
+  color: white;
   margin: 10px 0 10px 0;
   font-size: 5rem;
   letter-spacing: -1px;
-  text-shadow: white 0px 0px 7px;
+  text-shadow: #000 0px 0px 7px;
 }
 
 .blog-description {
-  color: #37501a;
+  color: #e8ffce;
   margin: 0;
   font-size: 2.5rem;
   line-height: 1.5em;
